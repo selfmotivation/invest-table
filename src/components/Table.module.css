@@ -1,0 +1,21 @@
+.table {
+    /* display: grid; */
+    background-color: rgb(162, 162, 162);
+    /* gap: 2px; */
+
+    width: 900px;
+}
+
+.table__head {
+    background-color: rgb(194, 235, 255);
+    /* width: 100%; */
+}
+
+.table__row {
+    /* width: 100%; */
+}
+
+.table__data {
+    background-color: rgb(225, 245, 255);
+    /* width: 100%; */
+}
