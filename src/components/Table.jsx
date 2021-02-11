@@ -3,13 +3,13 @@ import css from './Table.module.css'
 import { TableBody } from './TableBody'
 import { TableHeader } from './TableHeader'
 
-export const Table = (props) => {
+export const Table = ({data}) => {
     
-
+    // console.log(data);
     return (
         <table className={css.table}>
-            <TableHeader></TableHeader>
-            <TableBody data={props.data}></TableBody>            
+            <TableHeader />
+            <TableBody data={data} />   
         </table>
     )
 }
