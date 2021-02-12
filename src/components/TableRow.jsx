@@ -1,20 +1,31 @@
 import React from 'react'
 import css from './Table.module.css'
+// import { TableCell } from './TableCell'
 
-export const TableRow = ({ row }) => {
+export const TableRow = (props) => {
     const handler = (e) => {
-        console.log(e.target);
-        console.log(e.target.parentElement.attributes);
-        console.log(row);
-        console.log(row.key);
+        const columnName = e.target.attributes.cellName.value;
+        const prevCellValue = props.row[columnName].toString();
+        const currentCellValue = e.target.textContent;
+        let defaultDataValue = props.data.data[props.idx][columnName];
+
+        console.log(columnName);
+
+        if (prevCellValue !== currentCellValue) {
+            props.data.data[props.idx][columnName] = +currentCellValue;
+            console.log(props.data.data[props.idx][columnName]);
+            console.log(props.data.data);
+
+        }
         
     }
 
     return (
-        <tr className={css.table__row}>
-            <td className={css.table__data} contentEditable onClick={handler}>{row.date}</td>
-            <td className={css.table__data} contentEditable onClick={handler}>{row.instr}</td>
-            <td className={css.table__data} contentEditable onBlur={handler}>{row.price}</td>
+        
+        <tr className={css.table__row} idx={props.idx}>
+            <td className={css.table__data} contentEditable onBlur={handler} idx={`${props.idx}0`} cellName='date'>{props.row.date}</td>
+            <td className={css.table__data} contentEditable onBlur={handler} idx={`${props.idx}1`} cellName='instr'>{props.row.instr}</td>
+            <td className={css.table__data} contentEditable onBlur={handler} idx={`${props.idx}2`} cellName='price'>{props.row.price}</td>
         </tr>
     )
 }

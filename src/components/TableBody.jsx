@@ -1,13 +1,13 @@
 import React from 'react'
 import { TableRow } from './TableRow'
 
-export const TableBody = ({data}) => {
+export const TableBody = (props) => {
     
     return (
         <tbody>
             {
-                data.map((row, index) => {
-                    return <TableRow row={row} key={index} />
+                props.data.data.map((row, idx) => {
+                    return <TableRow data={props.data} row={row} key={idx} idx={idx} />
                 })
                 
             }
